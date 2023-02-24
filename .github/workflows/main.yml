@@ -62,12 +62,12 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
-      script: |
-        # Выполняет pull образа с DockerHub
-        sudo docker pull 7xspirit/infra_actions:latest
-        #остановка всех контейнеров
-        sudo docker stop $(sudo docker ps -a -q)
-        sudo docker run --rm -d -p 5000:5000 7xspirit/infra_actions:latest
+        script: |
+          # Выполняет pull образа с DockerHub
+          sudo docker pull 7xspirit/infra_actions:latest
+          #остановка всех контейнеров
+          sudo docker stop $(sudo docker ps -a -q)
+          sudo docker run --rm -d -p 5000:5000 7xspirit/infra_actions:latest
 
   send_message:
     runs-on: ubuntu-latest
